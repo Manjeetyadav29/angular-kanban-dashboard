@@ -1,6 +1,6 @@
 <div class="kanban-container">
   <div class="kanban-header">
-    <div class="filters" style="display:flex; margin-top:10px">
+    <div class="filters" style="display:flex; margin-top:10px;justify-content:space-between">
       <input
         placeholder="search"
         type="text"
@@ -9,7 +9,7 @@
         (input)="onSearch()"
       />
       <div class="filters">
-        <select [(ngModel)]="selectedUser" (change)="onUserChange()">
+        <select [(ngModel)]="selectedUser" (change)="onUserChange()" style="margin-right:10px">
       <option *ngFor="let user of users" [value]="user" >{{user}}</option>
     </select>
 
@@ -107,3 +107,4 @@
   </div>
 
 </div>
+
