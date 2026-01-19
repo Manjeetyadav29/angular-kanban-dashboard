@@ -62,7 +62,7 @@
       </div>
 
       <!-- inprogress status -->
-      <div class="task-list" cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inprogressTasks"
+      <div class="task-list" cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgressTasks"
         [cdkDropListConnectedTo]="[pendingList, completedList]" (cdkDropListDropped)="onDrop($event, 'inProgress')">
         <div class="task-status">
           <span>Inprogress</span>
@@ -105,4 +105,5 @@
       </div>
     </div>
   </div>
+
 </div>
