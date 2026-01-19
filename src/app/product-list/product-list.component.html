@@ -9,7 +9,7 @@
         (input)="onSearch()"
       />
       <div class="filters">
-        <select [(ngModel)]="selectedUser" (change)="onUserChange()" style="margin-right:10px">
+        <select [(ngModel)]="selectedUser" (change)="onUserChange()"  style="margin-right:10px">
       <option *ngFor="let user of users" [value]="user" >{{user}}</option>
     </select>
 
@@ -107,4 +107,5 @@
   </div>
 
 </div>
+
 
