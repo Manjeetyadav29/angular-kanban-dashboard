@@ -1,0 +1,40 @@
+<div class="kanban-column">
+  <div class="column-header" [style.background-color]="column.color">
+    <div class="header-title">
+      <span class="title">{{ column.title }}</span>
+      <span class="count">{{ column.tasks.length }}</span>
+    </div>
+    <button class="add-button" (click)="onAddTask()" title="Add Card">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3V13M3 8H13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="add-card-section">
+    <button class="add-card-button" (click)="onAddTask()">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 3V11M3 7H11" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Add Card</span>
+    </button>
+  </div>
+
+  <div 
+    class="cards-container"
+    cdkDropList
+    [id]="column.id + '-list'"
+    [cdkDropListData]="column.tasks"
+    [cdkDropListConnectedTo]="getConnectedLists()"
+    (cdkDropListDropped)="onDrop($event)">
+    
+    @for (task of column.tasks; track task.id) {
+      <app-kanban-card
+        [task]="task"
+        (taskDeleted)="onTaskDelete($event)"
+        (taskUpdated)="onTaskUpdate($event.taskId, $event.updates)"
+        cdkDrag>
+      </app-kanban-card>
+    }
+  </div>
+</div>

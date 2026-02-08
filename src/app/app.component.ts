@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
+import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  standalone: true,
+  imports: [KanbanBoardComponent],
+  template: `<app-kanban-board></app-kanban-board>`,
+  styles: [`
+    :host {
+      display: block;
+      width: 100%;
+      height: 100vh;
+    }
+  `]
 })
-export class AppComponent  {}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+export class AppComponent {
+  title = 'Angular 19 Kanban Dashboard';
+}

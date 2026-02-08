@@ -1,0 +1,75 @@
+<div class="modal-backdrop" (click)="onBackdropClick($event)">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add New Task</h2>
+      <button class="close-button" (click)="onCancel()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <form (submit)="onSubmit()" class="modal-body">
+      <div class="form-group">
+        <label for="title">Task Title *</label>
+        <input
+          type="text"
+          id="title"
+          [(ngModel)]="taskTitle"
+          name="title"
+          placeholder="Enter task title"
+          required
+          autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="taskDescription"
+          name="description"
+          placeholder="Enter task description"
+          rows="3"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority" [(ngModel)]="taskPriority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Due Date</label>
+          <input
+            type="date"
+            id="dueDate"
+            [(ngModel)]="taskDueDate"
+            name="dueDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="assignee">Assignee</label>
+        <input
+          type="text"
+          id="assignee"
+          [(ngModel)]="taskAssignee"
+          name="assignee"
+          placeholder="Enter assignee name">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" (click)="onCancel()">
+          Cancel
+        </button>
+        <button type="submit" class="btn-submit">
+          Add Task
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="kanban-board">
+  <div class="kanban-columns">
+    @for (column of columns(); track column.id) {
+      <app-kanban-column
+        [column]="column"
+        (taskDeleted)="onTaskDeleted($event)"
+        (taskUpdated)="onTaskUpdated($event.taskId, $event.updates)"
+        (addTaskClicked)="openAddTaskModal(column.id)"
+        (taskDropped)="onDrop($event, column.id)">
+      </app-kanban-column>
+    }
+  </div>
+
+  @if (showAddTaskModal) {
+    <app-add-task-modal
+      [columnId]="selectedColumnId"
+      (taskAdded)="onTaskAdded($event)"
+      (closeModal)="closeAddTaskModal()">
+    </app-add-task-modal>
+  }
+</div>
